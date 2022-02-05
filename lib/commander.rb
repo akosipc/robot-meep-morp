@@ -12,6 +12,10 @@ class Commander
 
   attr_reader :robot
 
+  def initialize(reporting = false)
+    @reporting = reporting
+  end
+
   def read_command(line)
     raise ReadError, 'No argument was sent' if line.nil? || line.empty?
 
@@ -37,11 +41,12 @@ class Commander
   end
 
   def do_default_command(line)
-    if @robot.nil?
-      raise MissingRobotError,
-            "Cannot execute command #{line}. Current robot is missing. Please use a `PLACE` command first"
-    end
+    raise MissingRobotError, "Cannot execute command #{line}. Current robot is missing. Please use a `PLACE` command first" if @robot.nil?
 
-    @robot.send(line)
+    if line.downcase == 'report' && @reporting
+      puts @robot.report
+    else
+      @robot.send(line)
+    end
   end
 end
