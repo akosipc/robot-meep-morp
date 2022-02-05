@@ -52,6 +52,8 @@ RSpec.describe Robot, type: :class do
       let(:robot) { described_class.new(0, 0, 'WEST') }
 
       it 'ignores the change if the input is invalid' do
+        robot.move
+
         expect(robot.x).to eq 0
         expect(robot.y).to eq 0
       end
@@ -61,6 +63,8 @@ RSpec.describe Robot, type: :class do
       let(:robot) { described_class.new(0, 4, 'NORTH') }
 
       it 'ignores the change if the input is invalid' do
+        robot.move
+
         expect(robot.x).to eq 0
         expect(robot.y).to eq 4
       end

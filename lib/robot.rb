@@ -46,7 +46,11 @@ class Robot
   private
 
   def commit_coordinate_change(planar_coordinate, value)
-    planar_coordinate + value if ALLOWED_RANGE === (planar_coordinate + value)
+    if ALLOWED_RANGE === (planar_coordinate + value)
+      planar_coordinate + value
+    else
+      planar_coordinate
+    end
   end
 
   def validate_args(x_coor, y_coor, orientation)
