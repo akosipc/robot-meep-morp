@@ -1,5 +1,6 @@
 ## Toy Robot Simulator
 
+[![Tests](https://github.com/akosipc/robot-meep-morp/actions/workflows/test.yaml/badge.svg?branch=master)](https://github.com/akosipc/robot-meep-morp/actions/workflows/test.yaml)
 
 #### Version
 ```
