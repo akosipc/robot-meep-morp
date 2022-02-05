@@ -9,9 +9,18 @@ class Robot
   ALLOWED_RANGE = (0..4)
 
   def initialize(x_coor, y_coor, orientation)
-    raise InvalidArgument, "Invalid value for argument (:x_coor). Value passed is #{x_coor}" unless ALLOWED_RANGE === x_coor.to_i
-    raise InvalidArgument, "Invalid value for argument (:y_coor). Value passed is #{y_coor}" unless ALLOWED_RANGE === y_coor.to_i
-    raise InvalidArgument, "Invalid value for argument (:orientation). Value passed is #{orientation}" unless CARDINAL_DIRECTIONS.include?(orientation.downcase)
+    unless ALLOWED_RANGE === x_coor.to_i
+      raise InvalidArgument,
+            "Invalid value for argument (:x_coor). Value passed is #{x_coor}"
+    end
+    unless ALLOWED_RANGE === y_coor.to_i
+      raise InvalidArgument,
+            "Invalid value for argument (:y_coor). Value passed is #{y_coor}"
+    end
+    unless CARDINAL_DIRECTIONS.include?(orientation.downcase)
+      raise InvalidArgument,
+            "Invalid value for argument (:orientation). Value passed is #{orientation}"
+    end
 
     @x = x_coor.to_i
     @y = y_coor.to_i
