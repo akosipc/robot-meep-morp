@@ -41,7 +41,10 @@ class Commander
   end
 
   def do_default_command(line)
-    raise MissingRobotError, "Cannot execute command #{line}. Current robot is missing. Please use a `PLACE` command first" if @robot.nil?
+    if @robot.nil?
+      raise MissingRobotError,
+            "Cannot execute command #{line}. Current robot is missing. Please use a `PLACE` command first"
+    end
 
     if line.downcase == 'report' && @reporting
       puts @robot.report
