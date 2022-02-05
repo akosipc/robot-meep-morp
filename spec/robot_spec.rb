@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../lib/robot'
-require_relative './shared_examples/robot_spec'
+require_relative './shared_examples/robot'
 
 RSpec.describe Robot, type: :class do
   describe '#initialize' do
