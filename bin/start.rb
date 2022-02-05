@@ -14,7 +14,7 @@ puts '| REPORT           |'
 puts '--------------------'
 
 def start_application
-  application_loop(Commander.new(true))
+  application_loop(Commander.new(reporting: true))
 rescue Commander::MissingRobotError, Commander::ReadError => e
   puts e
   start_application

@@ -12,7 +12,7 @@ class Commander
 
   attr_reader :robot
 
-  def initialize(reporting = false)
+  def initialize(reporting: false)
     @reporting = reporting
   end
 
